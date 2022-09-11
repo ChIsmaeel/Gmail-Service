@@ -22,7 +22,7 @@ internal class MailReadService : IMailReadService
             UsersResource.MessagesResource.ListRequest ListRequest = gmailService.Users.Messages.List(userMail);
             ListRequest.LabelIds = "INBOX";
             ListRequest.IncludeSpamTrash = false;
-            //ListRequest.Q = "is:unread"; //ONLY FOR UNDREAD EMAIL'S...
+            ListRequest.Q = "is:unread"; //ONLY FOR UNDREAD EMAIL'S...
 
             //GET ALL EMAILS
             ListMessagesResponse? ListResponse = await ListRequest.ExecuteAsync();
